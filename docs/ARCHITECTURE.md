@@ -35,7 +35,7 @@ smf-clawpost/
 │       ├── main.tsx            React entry + router
 │       ├── App.tsx             Top nav + route table
 │       ├── api.ts              Typed fetch wrappers
-│       ├── theme.css           Clawpilot-aligned dark theme + FullCalendar overrides
+│       ├── theme.css           OpenClaw/Hermes-aligned dark theme + FullCalendar overrides
 │       └── pages/
 │           ├── CalendarPage.tsx     FullCalendar with drag-to-reschedule
 │           ├── ComposePage.tsx      Pick AI → pick accounts → write → schedule
@@ -110,13 +110,13 @@ That's the whole extension surface.
 | keytar | env-only | Tokens must not sit on disk in plaintext; keychain is the right primitive |
 | Vite + React | Next.js | No SSR needed; faster dev loop; smaller deploy |
 | FullCalendar | hand-rolled grid | Drag-to-reschedule and views for free |
-| Tailwind + theme.css vars | full component library | Matches Clawpilot visual posture without dependency weight |
+| Tailwind + theme.css vars | full component library | Matches OpenClaw/Hermes visual posture without dependency weight |
 | MIT | AGPL | Want SMF AIs to use freely without copyleft concerns |
 
 ## Out of scope (and why)
 
 - **Multi-tenant SaaS** — defeats local-first posture
-- **AI content generation in-app** — use Clawpilot, paste here
+- **AI content generation in-app** — use OpenClaw/Hermes, paste here
 - **Analytics dashboards** — read the platforms' native analytics; we focus on posting
 - **Cloud storage** — media is local; AIs sync via whatever they sync with already
 - **Two-factor / SSO** — local-only UI; the machine is the trust boundary

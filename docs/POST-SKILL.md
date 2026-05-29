@@ -1,7 +1,7 @@
-# The `/post` Clawpilot skill
+# The `/post` OpenClaw/Hermes skill
 
-A companion Clawpilot skill that schedules posts through this server's API. It lives
-outside the repo (it's a user-level Clawpilot skill), at:
+A companion OpenClaw/Hermes skill that schedules posts through this server's API. It lives
+outside the repo (it's a user-level skill), at:
 
 ```
 C:\Users\mgann\.copilot\m-skills\post\

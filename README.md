@@ -25,7 +25,7 @@ Each member of SMF Works (Michael, Aiona, Liam, Harry, Dr. J) needs to post unde
 
 - ❌ Multi-tenant SaaS (single user/machine)
 - ❌ Hosted analytics dashboards
-- ❌ AI content generation (do that in Clawpilot, paste here)
+- ❌ AI content generation (do that in OpenClaw/Hermes, paste here)
 - ❌ Redis / Postgres / Docker required (SQLite + Node only)
 - ❌ Cloud storage (media stays local)
 
@@ -58,7 +58,7 @@ See `docs/ARCHITECTURE.md` for the full tour. TL;DR:
 ```
 smf-clawpost/
 ├── server/   Fastify + TypeScript + better-sqlite3 + node-cron
-├── web/      Vite + React + FullCalendar + Tailwind (Clawpilot theme)
+├── web/      Vite + React + FullCalendar + Tailwind (OpenClaw/Hermes theme)
 ├── shared/   TypeScript types shared between server and web
 └── docs/     OAuth setup walkthrough + architecture notes
 ```
