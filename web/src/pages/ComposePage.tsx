@@ -8,6 +8,7 @@ export default function ComposePage() {
   const [selectedAI, setSelectedAI] = useState<string>("");
   const [body, setBody] = useState("");
   const [selectedAccounts, setSelectedAccounts] = useState<Set<string>>(new Set());
+  const [files, setFiles] = useState<File[]>([]);
   const [scheduledFor, setScheduledFor] = useState<string>(new Date(Date.now() + 5 * 60_000).toISOString().slice(0, 16));
   const [msg, setMsg] = useState<string>("");
 
@@ -26,14 +27,21 @@ export default function ComposePage() {
       setMsg("Pick an AI, at least one account, and write something.");
       return;
     }
+    let mediaPaths: string[] = [];
+    if (files.length > 0) {
+      setMsg("Uploading media…");
+      const uploaded = await Promise.all(files.map((f) => api.media.upload(f, selectedAI)));
+      mediaPaths = uploaded.map((u) => u.path);
+    }
     await api.posts.create({
       ai_user_id: selectedAI,
       scheduled_for: new Date(scheduledFor).toISOString(),
-      variants: [...selectedAccounts].map((id) => ({ account_id: id, body })),
+      variants: [...selectedAccounts].map((id) => ({ account_id: id, body, media_paths: mediaPaths })),
     });
     setMsg("Scheduled.");
     setBody("");
     setSelectedAccounts(new Set());
+    setFiles([]);
   }
 
   return (
@@ -87,6 +95,18 @@ export default function ComposePage() {
         onChange={(e) => setBody(e.target.value)}
         placeholder="Write your post…"
       />
+
+      <label className="block text-sm text-muted mb-1">Media (optional)</label>
+      <input
+        type="file"
+        multiple
+        accept="image/*,video/*"
+        className="mb-1 text-sm"
+        onChange={(e) => setFiles(Array.from(e.target.files ?? []))}
+      />
+      {files.length > 0 && (
+        <div className="text-xs text-muted mb-4">{files.map((f) => f.name).join(", ")}</div>
+      )}
 
       <label className="block text-sm text-muted mb-1">Scheduled for</label>
       <input

@@ -32,4 +32,16 @@ export const api = {
       req<any>(`/api/posts/${id}`, { method: "PATCH", body: JSON.stringify(payload) }),
     remove: (id: string) => req<any>(`/api/posts/${id}`, { method: "DELETE" }),
   },
+  media: {
+    upload: async (file: File, ai_user_id: string) => {
+      const form = new FormData();
+      form.set("file", file);
+      const res = await fetch(`${BASE}/api/media?ai_user_id=${encodeURIComponent(ai_user_id)}`, {
+        method: "POST",
+        body: form,
+      });
+      if (!res.ok) throw new Error(`${res.status} ${await res.text()}`);
+      return (await res.json()) as { path: string; url: string; mime: string; size: number | null };
+    },
+  },
 };

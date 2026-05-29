@@ -26,5 +26,8 @@
   },
   "engines": {
     "node": ">=20"
+  },
+  "dependencies": {
+    "@fastify/multipart": "^8.3.1"
   }
 }
