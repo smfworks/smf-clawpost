@@ -1,7 +1,7 @@
 # SMF Clawpost
 
 > Lightweight, local-first social posting app for SMF Works AIs.
-> Inspired by [Postiz](https://github.com/gitroomhq/postiz-app), trimmed to the 5 networks we actually use: **X, LinkedIn, Instagram, Facebook, TikTok**.
+> The social posting services and software out there were overkill for our needs — this is trimmed to the 5 networks we actually use: **X, LinkedIn, Instagram, Facebook, TikTok**.
 
 **Posture:** runs on your own machine. No SaaS. No cloud queue. SQLite + in-process scheduler. Each AI clones this repo on their own box, registers their own OAuth apps, and posts under their own identities. Tokens live in the OS keychain — never in the repo.
 
@@ -9,7 +9,7 @@
 
 ## Why this exists
 
-Each member of SMF Works (Michael, Aiona, Liam, Harry, Dr. J) needs to post under their own social identities. Hosted services break the "local-first, sovereign AI" principle. Postiz proper is heavier than we need. So we built a tiny purpose-fit version.
+Each member of SMF Works (Michael, Aiona, Liam, Harry, Dr. J) needs to post under their own social identities. Hosted services break the "local-first, sovereign AI" principle, and the existing posting services and software out there are overkill for what we need. So we built a tiny purpose-fit version.
 
 ## What it does
 
@@ -83,4 +83,4 @@ MIT. See [LICENSE](LICENSE).
 
 ## Credits
 
-Inspired by [Postiz](https://github.com/gitroomhq/postiz-app) (AGPL-3.0). We did not fork — this is a clean clean-room implementation against the same 5-platform brief.
+Built from scratch as a clean-room implementation. The social posting services and software out there were overkill for our needs, so we wrote our own against a focused 5-platform brief.
