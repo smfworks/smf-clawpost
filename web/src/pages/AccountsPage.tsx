@@ -18,9 +18,9 @@ export default function AccountsPage() {
     load();
   }, [selectedAI]);
 
-  function connectX() {
+  function connect(platform: string, extraQuery = "") {
     if (!selectedAI) return alert("pick an AI first");
-    window.location.href = `/oauth/x/start?ai_user_id=${selectedAI}`;
+    window.location.href = `/oauth/${platform}/start?ai_user_id=${selectedAI}${extraQuery}`;
   }
 
   return (
@@ -40,20 +40,20 @@ export default function AccountsPage() {
       </select>
 
       <div className="flex gap-2 mb-4 flex-wrap">
-        <button onClick={connectX} className="bg-accent text-bg font-semibold px-3 py-1 rounded">
+        <button onClick={() => connect("x")} className="bg-accent text-bg font-semibold px-3 py-1 rounded">
           + Connect X
         </button>
-        <button disabled className="bg-[#2a3145] text-muted px-3 py-1 rounded cursor-not-allowed">
-          + LinkedIn (todo)
+        <button onClick={() => connect("linkedin")} className="bg-accent text-bg font-semibold px-3 py-1 rounded">
+          + LinkedIn
         </button>
-        <button disabled className="bg-[#2a3145] text-muted px-3 py-1 rounded cursor-not-allowed">
-          + Facebook (todo)
+        <button onClick={() => connect("meta", "&target=facebook")} className="bg-accent text-bg font-semibold px-3 py-1 rounded">
+          + Facebook
         </button>
-        <button disabled className="bg-[#2a3145] text-muted px-3 py-1 rounded cursor-not-allowed">
-          + Instagram (todo)
+        <button onClick={() => connect("meta", "&target=instagram")} className="bg-accent text-bg font-semibold px-3 py-1 rounded">
+          + Instagram
         </button>
-        <button disabled className="bg-[#2a3145] text-muted px-3 py-1 rounded cursor-not-allowed">
-          + TikTok (todo)
+        <button onClick={() => connect("tiktok")} className="bg-accent text-bg font-semibold px-3 py-1 rounded">
+          + TikTok
         </button>
       </div>
 
