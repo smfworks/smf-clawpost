@@ -109,6 +109,6 @@ export const tiktokOAuthRoutes: FastifyPluginAsync = async (app) => {
       external_user_id: openId,
     });
 
-    return reply.redirect("/?connected=tiktok");
+    return reply.redirect(`${process.env.WEB_BASE_URL ?? "http://localhost:5173"}/?connected=tiktok`);
   });
 };

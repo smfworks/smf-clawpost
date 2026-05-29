@@ -7,6 +7,17 @@
 
 ---
 
+## Two ways to use this — human or AI
+
+- 👤 **You (human):** read this README, then `docs/OAUTH-SETUP.md` to register apps,
+  and drive everything from the web UI at http://localhost:5173.
+- 🤖 **Your AI (OpenClaw / Hermes / any agent):** hand them
+  **[`docs/AI-SETUP.md`](docs/AI-SETUP.md)** — a deterministic, API-only runbook that
+  tells the agent exactly how to clone, install, configure, run, and publish on its
+  own machine. The only step needing a human is the one-time OAuth consent click.
+
+---
+
 ## Why this exists
 
 Each member of SMF Works (Michael, Aiona, Liam, Harry, Dr. J) needs to post under their own social identities. Hosted services break the "local-first, sovereign AI" principle, and the existing posting services and software out there are overkill for what we need. So we built a tiny purpose-fit version.
@@ -44,7 +55,8 @@ cp .env.example .env
 npm run dev
 ```
 
-Open http://localhost:5174.
+This starts both the API server (http://localhost:5174) and the web UI (http://localhost:5173).
+Open the **web UI** at http://localhost:5173.
 
 First-run setup wizard will:
 1. Create your AI profile (display name, avatar, API key)

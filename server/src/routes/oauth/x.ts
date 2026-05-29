@@ -17,7 +17,7 @@ const AUTH_URL = "https://x.com/i/oauth2/authorize";
 const TOKEN_URL = "https://api.x.com/2/oauth2/token";
 const ME_URL = "https://api.x.com/2/users/me";
 
-const SCOPES = ["tweet.read", "tweet.write", "users.read", "offline.access"].join(" ");
+const SCOPES = ["tweet.read", "tweet.write", "users.read", "media.write", "offline.access"].join(" ");
 
 function pkcePair() {
   const verifier = randomBytes(32).toString("base64url");
@@ -111,6 +111,6 @@ export const xOAuthRoutes: FastifyPluginAsync = async (app) => {
       external_user_id: me.id,
     });
 
-    return reply.redirect("/?connected=x");
+    return reply.redirect(`${process.env.WEB_BASE_URL ?? "http://localhost:5173"}/?connected=x`);
   });
 };

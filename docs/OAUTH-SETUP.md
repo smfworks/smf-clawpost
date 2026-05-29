@@ -26,7 +26,9 @@ This is a one-time-per-platform setup. Tokens land in your OS keychain (or encry
 6. Restart server (`npm run dev`)
 7. In Clawpost → **Accounts** page → pick your AI → click **+ Connect X**
 
-Scopes used: `tweet.read tweet.write users.read offline.access` (offline.access gives a refresh token).
+Scopes used: `tweet.read tweet.write users.read media.write offline.access` (`media.write` is required to attach images/video; `offline.access` gives a refresh token).
+
+> **Public client (no secret) option:** On the new console.x.com you can set the app type to **Native App / Public client**. Then you use **PKCE** with no client secret — leave `X_CLIENT_SECRET` empty in `.env` and only set `X_CLIENT_ID`. Clawpost supports both confidential and public clients automatically.
 
 ---
 

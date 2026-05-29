@@ -154,6 +154,6 @@ export const metaOAuthRoutes: FastifyPluginAsync = async (app) => {
         .send({ error: "no Instagram Business account linked to any of your Pages" });
     }
 
-    return reply.redirect(`/?connected=${target}`);
+    return reply.redirect(`${process.env.WEB_BASE_URL ?? "http://localhost:5173"}/?connected=${target}`);
   });
 };

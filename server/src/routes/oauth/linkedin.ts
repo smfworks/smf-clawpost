@@ -100,6 +100,6 @@ export const linkedinOAuthRoutes: FastifyPluginAsync = async (app) => {
       external_user_id: me.sub,
     });
 
-    return reply.redirect("/?connected=linkedin");
+    return reply.redirect(`${process.env.WEB_BASE_URL ?? "http://localhost:5173"}/?connected=linkedin`);
   });
 };
