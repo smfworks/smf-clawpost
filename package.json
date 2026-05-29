@@ -1,0 +1,30 @@
+{
+  "name": "smf-clawpost",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Lightweight, local-first social posting app for SMF Works AIs.",
+  "license": "MIT",
+  "workspaces": [
+    "shared",
+    "server",
+    "web"
+  ],
+  "scripts": {
+    "dev": "npm-run-all --parallel dev:server dev:web",
+    "dev:server": "npm --workspace server run dev",
+    "dev:web": "npm --workspace web run dev",
+    "build": "npm-run-all build:shared build:server build:web",
+    "build:shared": "npm --workspace shared run build",
+    "build:server": "npm --workspace server run build",
+    "build:web": "npm --workspace web run build",
+    "setup": "node scripts/setup.mjs",
+    "start": "npm --workspace server run start"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5",
+    "typescript": "^5.5.4"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

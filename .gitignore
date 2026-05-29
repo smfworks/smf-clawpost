@@ -1,0 +1,53 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build output
+dist/
+build/
+*.tsbuildinfo
+
+# Environment + secrets — NEVER commit
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+secrets/
+
+# Local data — NEVER commit
+data/
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+
+# Media uploads — local-only
+media/
+uploads/
+
+# OAuth tokens cache (fallback when keychain unavailable)
+tokens/
+.tokens/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.log
+
+# Logs
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Misc
+.cache/
+.turbo/
